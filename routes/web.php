@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Product;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +21,16 @@ Route::get('/', function () {
 });
 Route::get('/form', function () {
     return view('additemform');
-});
+})->name('form');
+
+Route::post('/formurl', function (Request $req) {
+    $product = new Product;
+    $product->name = $req->name;
+    $product->price = $req->price;
+    $product->avalable = $req->avalable;
+    $product->save();
+    return redirect('/home');
+})->name('postform');
 
 Auth::routes();
 

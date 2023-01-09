@@ -2,22 +2,23 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" >
 
-    <form>
+    <form method="POST" action="{{ route('postform') }}" >
+      @csrf
         <div class="form-group">
           <label for="name">name</label>
-          <input type="text" class="form-control" id="name" placeholder="name">
+          <input required type="text" class="form-control" id="name" placeholder="name" name="name">
         </div>
 
         <div class="form-group">
           <label for="price">price</label>
-          <input type="text" class="form-control" id="price" placeholder="price">
+          <input required type="text" class="form-control" id="price" placeholder="price" name="price">
         </div>
 
         <div class="form-group">
           <label for="avalable">avalable</label>
-          <select class="form-select" aria-label="Default select example" id="avalable">
+          <select required class="form-select" id="avalable" name="avalable">
             <option selected>avalablity</option>
             <option value="1">yes</option>
             <option value="0">no</option>
@@ -28,5 +29,7 @@
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
 </div>
+
+
 @endsection
 

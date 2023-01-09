@@ -7,8 +7,14 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
-               <button>add a new item</button>
+               <a class="btn btn-primary" href="{{ route('form') }}" >add item</a>
+               
             </div>
+            <h1>product list</h1>
+            @foreach ($products as $product)
+                
+            <p>{{ $product->name }} - {{$product->price}}</p>
+            @endforeach
         </div>
     </div>
 </div>
